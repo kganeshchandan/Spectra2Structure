@@ -1,0 +1,58 @@
+data:
+  batch_size: 400
+  datafiles:
+    test: /home2/kanakala.ganesh/ir_data/raw_test.pickle
+    train: /home2/kanakala.ganesh/ir_data/raw_train.pickle
+    val: /home2/kanakala.ganesh/ir_data/raw_val.pickle
+  max_charge: null
+  normalization: unit
+  num_species: null
+  num_workers: 20
+  qm9_broad_ir_path: /home2/kanakala.ganesh/ir_data/qm9_broad_ir.pkl
+  seq_len: 70
+  shuffle: true
+  splits:
+  - 0.8
+  - 0.1
+  - 0.1
+  vocab_path: /home2/kanakala.ganesh/CLIP_PART_1/data/qm9_vocab.pkl
+molecule_decoder:
+  hidden_size: 512
+  in_size: 512
+  latent_size: 512
+  n_heads: 4
+  n_layers: 3
+molecule_encoder:
+  attention: 1
+  coords_weight: 1.0
+  device: cuda
+  hidden_nf: 256
+  in_edge_nf: 0
+  in_node_nf: 15
+  n_layers: 5
+  node_attr: 1
+  output_size: 512
+spectra_encoder:
+  d_ff: 1024
+  dropout: 0.1
+  dropout_emb: 0.1
+  h_dim: 512
+  max_time_steps: 1000
+  num_heads: 7
+  num_layers: 5
+  output_size: 512
+  patch_size: 7
+  use_clf_token: true
+train:
+  checkpoint_dir: checkpoints/RUN_unit_recon_mol_latent
+  device: cuda
+  lr: 0.0001
+  num_epochs: 500
+  temperature: 1
+  threshold: 0.9999
+  weight_decay: 1.0e-06
+wandb:
+  dir: /scratch/kanakala.ganesh/
+  job_type: sample
+  project_name: CLIP_Full
+  run_name: RUN_unit_recon_mol_latent

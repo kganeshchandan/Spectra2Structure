@@ -1,0 +1,8 @@
+
+*.bz2
+*.txt
+
+wandb/
+checkpoints/
+
+*ipynb_checkpoints
